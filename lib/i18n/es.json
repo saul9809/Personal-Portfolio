@@ -1,0 +1,113 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Acerca",
+    "resume": "CV",
+    "portfolio": "Portafolio",
+    "caseStudies": "Casos",
+    "certifications": "Certificaciones",
+    "testimonials": "Testimonios",
+    "contact": "Contacto"
+  },
+  "theme": {
+    "toggle": "Cambiar tema",
+    "light": "Modo claro",
+    "dark": "Modo oscuro"
+  },
+  "language": {
+    "label": "Idioma",
+    "es": "Español",
+    "en": "Inglés"
+  },
+  "hero": {
+    "greeting": "Hola, soy",
+    "ctaProjects": "Ver proyectos",
+    "ctaContact": "Contáctame",
+    "scroll": "Desplázate"
+  },
+  "about": {
+    "title": "Acerca de mí",
+    "subtitle": "Conóceme",
+    "personalInfo": "Datos personales",
+    "softSkills": "Habilidades blandas",
+    "stats": {
+      "experience": "Años de experiencia",
+      "projects": "Proyectos completados",
+      "technologies": "Tecnologías"
+    }
+  },
+  "resume": {
+    "title": "Currículum",
+    "subtitle": "Experiencia y habilidades",
+    "experience": "Experiencia laboral",
+    "education": "Educación",
+    "skills": "Habilidades técnicas"
+  },
+  "portfolio": {
+    "title": "Portafolio",
+    "subtitle": "Mis proyectos",
+    "filterAll": "Todos",
+    "filterLabel": "Filtrar por tecnología",
+    "viewProject": "Ver proyecto",
+    "liveDemo": "Demo en vivo",
+    "sourceCode": "Código fuente",
+    "technologies": "Tecnologías"
+  },
+  "trustedBy": {
+    "title": "Confían en mí",
+    "subtitle": "Empresas e instituciones"
+  },
+  "caseStudies": {
+    "title": "Casos de estudio",
+    "subtitle": "Proyectos destacados en detalle",
+    "challenge": "Reto",
+    "solution": "Solución",
+    "result": "Resultado",
+    "metrics": "Métricas"
+  },
+  "certifications": {
+    "title": "Certificaciones",
+    "subtitle": "Formación y credenciales"
+  },
+  "testimonials": {
+    "title": "Testimonios",
+    "subtitle": "Lo que dicen de mí",
+    "previous": "Anterior",
+    "next": "Siguiente"
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "Hablemos",
+    "name": "Nombre",
+    "namePlaceholder": "Tu nombre",
+    "email": "Correo electrónico",
+    "emailPlaceholder": "tu@correo.com",
+    "subject": "Asunto",
+    "subjectPlaceholder": "¿De qué quieres hablar?",
+    "message": "Mensaje",
+    "messagePlaceholder": "Cuéntame sobre tu proyecto...",
+    "send": "Enviar mensaje",
+    "sending": "Enviando...",
+    "success": "¡Mensaje enviado! Te responderé pronto.",
+    "error": "Hubo un error al enviar. Inténtalo de nuevo.",
+    "errors": {
+      "nameRequired": "El nombre es obligatorio",
+      "nameMin": "El nombre debe tener al menos 2 caracteres",
+      "emailRequired": "El correo es obligatorio",
+      "emailInvalid": "El correo no es válido",
+      "subjectRequired": "El asunto es obligatorio",
+      "subjectMin": "El asunto debe tener al menos 3 caracteres",
+      "messageRequired": "El mensaje es obligatorio",
+      "messageMin": "El mensaje debe tener al menos 10 caracteres"
+    },
+    "directContact": "Contacto directo"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados",
+    "builtWith": "Construido con Next.js y Tailwind CSS",
+    "backToTop": "Volver arriba"
+  },
+  "common": {
+    "loading": "Cargando..."
+  }
+}

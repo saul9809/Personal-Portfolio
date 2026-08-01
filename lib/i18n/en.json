@@ -1,0 +1,113 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "resume": "Resume",
+    "portfolio": "Portfolio",
+    "caseStudies": "Cases",
+    "certifications": "Certifications",
+    "testimonials": "Testimonials",
+    "contact": "Contact"
+  },
+  "theme": {
+    "toggle": "Toggle theme",
+    "light": "Light mode",
+    "dark": "Dark mode"
+  },
+  "language": {
+    "label": "Language",
+    "es": "Spanish",
+    "en": "English"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "ctaProjects": "View projects",
+    "ctaContact": "Contact me",
+    "scroll": "Scroll down"
+  },
+  "about": {
+    "title": "About me",
+    "subtitle": "Get to know me",
+    "personalInfo": "Personal info",
+    "softSkills": "Soft skills",
+    "stats": {
+      "experience": "Years of experience",
+      "projects": "Projects completed",
+      "technologies": "Technologies"
+    }
+  },
+  "resume": {
+    "title": "Resume",
+    "subtitle": "Experience & skills",
+    "experience": "Work experience",
+    "education": "Education",
+    "skills": "Technical skills"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "subtitle": "My projects",
+    "filterAll": "All",
+    "filterLabel": "Filter by technology",
+    "viewProject": "View project",
+    "liveDemo": "Live demo",
+    "sourceCode": "Source code",
+    "technologies": "Technologies"
+  },
+  "trustedBy": {
+    "title": "Trusted by",
+    "subtitle": "Companies & institutions"
+  },
+  "caseStudies": {
+    "title": "Case studies",
+    "subtitle": "Featured projects in detail",
+    "challenge": "Challenge",
+    "solution": "Solution",
+    "result": "Result",
+    "metrics": "Metrics"
+  },
+  "certifications": {
+    "title": "Certifications",
+    "subtitle": "Training & credentials"
+  },
+  "testimonials": {
+    "title": "Testimonials",
+    "subtitle": "What they say about me",
+    "previous": "Previous",
+    "next": "Next"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Let's talk",
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "email": "Email",
+    "emailPlaceholder": "your@email.com",
+    "subject": "Subject",
+    "subjectPlaceholder": "What do you want to talk about?",
+    "message": "Message",
+    "messagePlaceholder": "Tell me about your project...",
+    "send": "Send message",
+    "sending": "Sending...",
+    "success": "Message sent! I'll get back to you soon.",
+    "error": "There was an error sending. Please try again.",
+    "errors": {
+      "nameRequired": "Name is required",
+      "nameMin": "Name must be at least 2 characters",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Email is not valid",
+      "subjectRequired": "Subject is required",
+      "subjectMin": "Subject must be at least 3 characters",
+      "messageRequired": "Message is required",
+      "messageMin": "Message must be at least 10 characters"
+    },
+    "directContact": "Direct contact"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "builtWith": "Built with Next.js & Tailwind CSS",
+    "backToTop": "Back to top"
+  },
+  "common": {
+    "loading": "Loading..."
+  }
+}
