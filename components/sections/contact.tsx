@@ -1,15 +1,23 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
-import { Send, Mail, Phone, MapPin, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import { services } from '@/lib/services';
-import type { LocalizedProfile } from '@/lib/services';
-import type { Dictionary } from '@/lib/i18n';
+import { useState } from "react";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import {
+  Send,
+  Mail,
+  Phone,
+  MapPin,
+  CheckCircle2,
+  AlertCircle,
+  Loader2,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { services } from "@/lib/services";
+import type { LocalizedProfile } from "@/lib/services";
+import type { Dictionary } from "@/lib/i18n";
 
 interface ContactProps {
   profile: LocalizedProfile;
@@ -30,18 +38,18 @@ interface FormErrors {
   message?: string;
 }
 
-type Status = 'idle' | 'loading' | 'success' | 'error';
+type Status = "idle" | "loading" | "success" | "error";
 
 export function Contact({ profile, dict }: ContactProps) {
   const reduce = useReducedMotion();
   const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
   const [errors, setErrors] = useState<FormErrors>({});
-  const [status, setStatus] = useState<Status>('idle');
+  const [status, setStatus] = useState<Status>("idle");
 
   const validate = (): boolean => {
     const e: FormErrors = {};
@@ -51,7 +59,8 @@ export function Contact({ profile, dict }: ContactProps) {
     else if (formData.name.trim().length < 2) e.name = d.nameMin;
 
     if (!formData.email.trim()) e.email = d.emailRequired;
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) e.email = d.emailInvalid;
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email))
+      e.email = d.emailInvalid;
 
     if (!formData.subject.trim()) e.subject = d.subjectRequired;
     else if (formData.subject.trim().length < 3) e.subject = d.subjectMin;
@@ -69,12 +78,12 @@ export function Contact({ profile, dict }: ContactProps) {
       setErrors((prev) => ({ ...prev, [field]: undefined }));
     }
   };
-
+  // -- Submit message email
   const handleSubmit = async (ev: React.FormEvent) => {
     ev.preventDefault();
     if (!validate()) return;
 
-    setStatus('loading');
+    setStatus("loading");
     try {
       await services.submitContactMessage({
         name: formData.name,
@@ -82,19 +91,34 @@ export function Contact({ profile, dict }: ContactProps) {
         subject: formData.subject,
         message: formData.message,
       });
-      setStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      setTimeout(() => setStatus('idle'), 5000);
+      setStatus("success");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+      setTimeout(() => setStatus("idle"), 5000);
     } catch {
-      setStatus('error');
-      setTimeout(() => setStatus('idle'), 5000);
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 5000);
     }
   };
 
   const contactItems = [
-    { icon: Mail, label: dict.contact.email, value: profile.email, href: `mailto:${profile.email}` },
-    { icon: Phone, label: dict.contact.name === 'Nombre' ? 'Teléfono' : 'Phone', value: profile.phone, href: `tel:${profile.phone.replace(/\s/g, '')}` },
-    { icon: MapPin, label: profile.personalInfo[0]?.label || 'Location', value: profile.personalInfo[0]?.value || '', href: undefined },
+    {
+      icon: Mail,
+      label: dict.contact.email,
+      value: profile.email,
+      href: `mailto:${profile.email}`,
+    },
+    {
+      icon: Phone,
+      label: dict.contact.name === "Nombre" ? "Teléfono" : "Phone",
+      value: profile.phone,
+      href: `tel:${profile.phone.replace(/\s/g, "")}`,
+    },
+    {
+      icon: MapPin,
+      label: profile.personalInfo[0]?.label || "Location",
+      value: profile.personalInfo[0]?.value || "",
+      href: undefined,
+    },
   ];
 
   return (
@@ -123,7 +147,9 @@ export function Contact({ profile, dict }: ContactProps) {
             transition={{ duration: 0.5 }}
             className="lg:col-span-2"
           >
-            <h3 className="mb-6 font-display text-xl font-semibold">{dict.contact.directContact}</h3>
+            <h3 className="mb-6 font-display text-xl font-semibold">
+              {dict.contact.directContact}
+            </h3>
             <div className="space-y-4">
               {contactItems.map((item, i) => (
                 <div key={i} className="flex items-center gap-3">
@@ -131,13 +157,20 @@ export function Contact({ profile, dict }: ContactProps) {
                     <item.icon className="h-4 w-4 text-muted-foreground" />
                   </div>
                   <div>
-                    <div className="text-xs text-muted-foreground">{item.label}</div>
+                    <div className="text-xs text-muted-foreground">
+                      {item.label}
+                    </div>
                     {item.href ? (
-                      <a href={item.href} className="text-sm font-medium text-foreground hover:underline">
+                      <a
+                        href={item.href}
+                        className="text-sm font-medium text-foreground hover:underline"
+                      >
                         {item.value}
                       </a>
                     ) : (
-                      <div className="text-sm font-medium text-foreground">{item.value}</div>
+                      <div className="text-sm font-medium text-foreground">
+                        {item.value}
+                      </div>
                     )}
                   </div>
                 </div>
@@ -147,13 +180,13 @@ export function Contact({ profile, dict }: ContactProps) {
             <div className="mt-8 flex gap-3">
               {profile.socials.map((s) => {
                 const colorClass =
-                  s.icon === 'github'
-                    ? 'hover:text-sky-400 hover:border-sky-400/50'
-                    : s.icon === 'linkedin'
-                    ? 'hover:text-sky-500 hover:border-sky-500/50'
-                    : s.icon === 'mail'
-                    ? 'hover:text-blue-400 hover:border-blue-400/50'
-                    : '';
+                  s.icon === "github"
+                    ? "hover:text-sky-400 hover:border-sky-400/50"
+                    : s.icon === "linkedin"
+                      ? "hover:text-sky-500 hover:border-sky-500/50"
+                      : s.icon === "mail"
+                        ? "hover:text-blue-400 hover:border-blue-400/50"
+                        : "";
                 return (
                   <a
                     key={s.id}
@@ -163,7 +196,9 @@ export function Contact({ profile, dict }: ContactProps) {
                     aria-label={s.label}
                     className={`flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted-foreground transition-all duration-300 ${colorClass}`}
                   >
-                    <span className="text-xs font-bold uppercase">{s.id.slice(0, 2)}</span>
+                    <span className="text-xs font-bold uppercase">
+                      {s.id.slice(0, 2)}
+                    </span>
                   </a>
                 );
               })}
@@ -185,13 +220,15 @@ export function Contact({ profile, dict }: ContactProps) {
                 <Input
                   id="name"
                   value={formData.name}
-                  onChange={(e) => handleChange('name', e.target.value)}
+                  onChange={(e) => handleChange("name", e.target.value)}
                   placeholder={dict.contact.namePlaceholder}
                   aria-invalid={!!errors.name}
-                  aria-describedby={errors.name ? 'name-error' : undefined}
+                  aria-describedby={errors.name ? "name-error" : undefined}
                 />
                 {errors.name && (
-                  <p id="name-error" className="text-xs text-destructive">{errors.name}</p>
+                  <p id="name-error" className="text-xs text-destructive">
+                    {errors.name}
+                  </p>
                 )}
               </div>
 
@@ -201,13 +238,15 @@ export function Contact({ profile, dict }: ContactProps) {
                   id="email"
                   type="email"
                   value={formData.email}
-                  onChange={(e) => handleChange('email', e.target.value)}
+                  onChange={(e) => handleChange("email", e.target.value)}
                   placeholder={dict.contact.emailPlaceholder}
                   aria-invalid={!!errors.email}
-                  aria-describedby={errors.email ? 'email-error' : undefined}
+                  aria-describedby={errors.email ? "email-error" : undefined}
                 />
                 {errors.email && (
-                  <p id="email-error" className="text-xs text-destructive">{errors.email}</p>
+                  <p id="email-error" className="text-xs text-destructive">
+                    {errors.email}
+                  </p>
                 )}
               </div>
             </div>
@@ -217,13 +256,15 @@ export function Contact({ profile, dict }: ContactProps) {
               <Input
                 id="subject"
                 value={formData.subject}
-                onChange={(e) => handleChange('subject', e.target.value)}
+                onChange={(e) => handleChange("subject", e.target.value)}
                 placeholder={dict.contact.subjectPlaceholder}
                 aria-invalid={!!errors.subject}
-                aria-describedby={errors.subject ? 'subject-error' : undefined}
+                aria-describedby={errors.subject ? "subject-error" : undefined}
               />
               {errors.subject && (
-                <p id="subject-error" className="text-xs text-destructive">{errors.subject}</p>
+                <p id="subject-error" className="text-xs text-destructive">
+                  {errors.subject}
+                </p>
               )}
             </div>
 
@@ -232,23 +273,25 @@ export function Contact({ profile, dict }: ContactProps) {
               <Textarea
                 id="message"
                 value={formData.message}
-                onChange={(e) => handleChange('message', e.target.value)}
+                onChange={(e) => handleChange("message", e.target.value)}
                 placeholder={dict.contact.messagePlaceholder}
                 rows={5}
                 aria-invalid={!!errors.message}
-                aria-describedby={errors.message ? 'message-error' : undefined}
+                aria-describedby={errors.message ? "message-error" : undefined}
               />
               {errors.message && (
-                <p id="message-error" className="text-xs text-destructive">{errors.message}</p>
+                <p id="message-error" className="text-xs text-destructive">
+                  {errors.message}
+                </p>
               )}
             </div>
 
             <Button
               type="submit"
-              disabled={status === 'loading'}
+              disabled={status === "loading"}
               className="w-full sm:w-auto"
             >
-              {status === 'loading' ? (
+              {status === "loading" ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                   {dict.contact.sending}
@@ -262,7 +305,7 @@ export function Contact({ profile, dict }: ContactProps) {
             </Button>
 
             <AnimatePresence>
-              {status === 'success' && (
+              {status === "success" && (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -273,7 +316,7 @@ export function Contact({ profile, dict }: ContactProps) {
                   {dict.contact.success}
                 </motion.div>
               )}
-              {status === 'error' && (
+              {status === "error" && (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -309,7 +352,10 @@ export function ContactSkeleton() {
           <div className="space-y-5 lg:col-span-3">
             <div className="grid gap-5 sm:grid-cols-2">
               {[...Array(2)].map((_, i) => (
-                <div key={i} className="h-16 animate-pulse rounded-md bg-muted" />
+                <div
+                  key={i}
+                  className="h-16 animate-pulse rounded-md bg-muted"
+                />
               ))}
             </div>
             <div className="h-16 animate-pulse rounded-md bg-muted" />

@@ -1,29 +1,31 @@
-import type { Locale } from '@/lib/types';
-import { profile } from '@/lib/mock-data';
+import type { Locale } from "@/lib/types";
+import { profile } from "@/lib/mock-data";
 
 export function StructuredData({ locale }: { locale: Locale }) {
   const data = {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
+    "@context": "https://schema.org",
+    "@type": "Person",
     name: profile.name,
     jobTitle: profile.role[locale],
     email: `mailto:${profile.email}`,
     telephone: profile.phone,
     address: {
-      '@type': 'PostalAddress',
+      "@type": "PostalAddress",
       addressLocality: profile.location[locale],
-      addressCountry: 'CU',
+      addressCountry: "CU",
     },
     knowsAbout: [
-      'Laravel',
-      'React',
-      'React Native',
-      'PHP',
-      'TypeScript',
-      'PostgreSQL',
+      "Laravel",
+      "React",
+      "React Native",
+      "PHP",
+      "TypeScript",
+      "PostgreSQL",
+      "Appsmith",
+      "Retool",
     ],
-    knowsLanguage: ['es', 'en'],
-    nationality: 'CU',
+    knowsLanguage: ["es", "en"],
+    nationality: "CU",
   };
 
   return (

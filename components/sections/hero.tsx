@@ -1,10 +1,11 @@
-'use client';
+/* eslint-disable @next/next/no-img-element */
+"use client";
 
-import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowDown, Github, Linkedin, Mail, MapPin } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import type { LocalizedProfile } from '@/lib/services';
-import type { Dictionary } from '@/lib/i18n';
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowDown, Github, Linkedin, Mail, MapPin } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import type { LocalizedProfile } from "@/lib/services";
+import type { Dictionary } from "@/lib/i18n";
 
 interface HeroProps {
   profile: LocalizedProfile;
@@ -18,16 +19,16 @@ const socialIcons: Record<string, React.ReactNode> = {
 };
 
 const socialColors: Record<string, string> = {
-  github: 'hover:text-sky-400 hover:border-sky-400/50',
-  linkedin: 'hover:text-sky-500 hover:border-sky-500/50',
-  mail: 'hover:text-blue-400 hover:border-blue-400/50',
+  github: "hover:text-sky-400 hover:border-sky-400/50",
+  linkedin: "hover:text-sky-500 hover:border-sky-500/50",
+  mail: "hover:text-blue-400 hover:border-blue-400/50",
 };
 
 export function Hero({ profile, dict }: HeroProps) {
   const reduce = useReducedMotion();
 
   const scrollTo = (href: string) => {
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -46,7 +47,7 @@ export function Hero({ profile, dict }: HeroProps) {
           <motion.div
             initial={reduce ? false : { opacity: 0, scale: 0.8 }}
             animate={reduce ? undefined : { opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             className="relative mb-8"
           >
             <div className="absolute inset-0 rounded-full bg-sky-500/20 blur-2xl" />
@@ -115,7 +116,7 @@ export function Hero({ profile, dict }: HeroProps) {
           >
             <Button
               size="lg"
-              onClick={() => scrollTo('#portfolio')}
+              onClick={() => scrollTo("#portfolio")}
               className="min-w-[160px] bg-sky-600 hover:bg-sky-500 text-white"
             >
               {dict.hero.ctaProjects}
@@ -123,7 +124,7 @@ export function Hero({ profile, dict }: HeroProps) {
             <Button
               size="lg"
               variant="outline"
-              onClick={() => scrollTo('#contact')}
+              onClick={() => scrollTo("#contact")}
               className="min-w-[160px] border-sky-500/30 hover:border-sky-400/60 hover:bg-sky-500/10"
             >
               {dict.hero.ctaContact}
@@ -143,7 +144,7 @@ export function Hero({ profile, dict }: HeroProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={s.label}
-                className={`flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted-foreground transition-all duration-300 ${socialColors[s.icon] || ''}`}
+                className={`flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted-foreground transition-all duration-300 ${socialColors[s.icon] || ""}`}
               >
                 {socialIcons[s.icon]}
               </a>
@@ -153,7 +154,7 @@ export function Hero({ profile, dict }: HeroProps) {
       </div>
 
       <motion.button
-        onClick={() => scrollTo('#about')}
+        onClick={() => scrollTo("#about")}
         initial={reduce ? false : { opacity: 0 }}
         animate={reduce ? undefined : { opacity: 1 }}
         transition={{ duration: 0.6, delay: 1 }}
@@ -162,7 +163,7 @@ export function Hero({ profile, dict }: HeroProps) {
       >
         <motion.div
           animate={reduce ? undefined : { y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
         >
           <ArrowDown className="h-5 w-5" />
         </motion.div>
@@ -186,7 +187,10 @@ export function HeroSkeleton() {
         </div>
         <div className="mt-8 flex gap-3">
           {[0, 1, 2].map((i) => (
-            <div key={i} className="h-10 w-10 animate-pulse rounded-full bg-muted" />
+            <div
+              key={i}
+              className="h-10 w-10 animate-pulse rounded-full bg-muted"
+            />
           ))}
         </div>
       </div>

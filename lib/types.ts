@@ -1,4 +1,4 @@
-export type Locale = 'es' | 'en';
+export type Locale = "es" | "en";
 
 export interface SocialLink {
   id: string;
@@ -52,7 +52,7 @@ export interface EducationItem {
 
 export interface Project {
   id: string;
-  title: string;
+  title: Record<Locale, string>;
   category: Record<Locale, string>;
   description: Record<Locale, string>;
   longDescription: Record<Locale, string>;

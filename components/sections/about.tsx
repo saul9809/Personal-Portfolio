@@ -1,10 +1,15 @@
-'use client';
+"use client";
 
-import { FadeIn, SlideUp, StaggerContainer, StaggerItem } from '@/components/motion';
-import { Card, CardContent } from '@/components/ui/card';
-import { Briefcase, FolderGit2, Cpu, Check } from 'lucide-react';
-import type { LocalizedProfile } from '@/lib/services';
-import type { Dictionary } from '@/lib/i18n';
+import {
+  FadeIn,
+  SlideUp,
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Briefcase, FolderGit2, Cpu, Check } from "lucide-react";
+import type { LocalizedProfile } from "@/lib/services";
+import type { Dictionary } from "@/lib/i18n";
 
 interface AboutProps {
   profile: LocalizedProfile;
@@ -15,8 +20,8 @@ interface AboutProps {
 
 export function About({ profile, dict, projectCount, techCount }: AboutProps) {
   const stats = [
-    { icon: Briefcase, value: '8+', label: dict.about.stats.experience },
-    { icon: FolderGit2, value: `${projectCount}`, label: dict.about.stats.projects },
+    { icon: Briefcase, value: "6+", label: dict.about.stats.experience },
+    { icon: FolderGit2, value: "12", label: dict.about.stats.projects },
     { icon: Cpu, value: `${techCount}+`, label: dict.about.stats.technologies },
   ];
 
@@ -44,8 +49,12 @@ export function About({ profile, dict, projectCount, techCount }: AboutProps) {
                   <Card className="border-border bg-surface">
                     <CardContent className="flex flex-col items-center gap-2 p-5 text-center">
                       <s.icon className="h-6 w-6 text-muted-foreground" />
-                      <span className="font-display text-2xl font-bold">{s.value}</span>
-                      <span className="text-xs text-muted-foreground">{s.label}</span>
+                      <span className="font-display text-2xl font-bold">
+                        {s.value}
+                      </span>
+                      <span className="text-xs text-muted-foreground">
+                        {s.label}
+                      </span>
                     </CardContent>
                   </Card>
                 </FadeIn>
@@ -62,9 +71,16 @@ export function About({ profile, dict, projectCount, techCount }: AboutProps) {
                   </h3>
                   <ul className="space-y-3">
                     {profile.personalInfo.map((info, i) => (
-                      <li key={i} className="flex flex-col gap-0.5 sm:flex-row sm:justify-between">
-                        <span className="text-sm text-muted-foreground">{info.label}</span>
-                        <span className="text-sm font-medium text-foreground">{info.value}</span>
+                      <li
+                        key={i}
+                        className="flex flex-col gap-0.5 sm:flex-row sm:justify-between"
+                      >
+                        <span className="text-sm text-muted-foreground">
+                          {info.label}
+                        </span>
+                        <span className="text-sm font-medium text-foreground">
+                          {info.value}
+                        </span>
                       </li>
                     ))}
                   </ul>
@@ -83,7 +99,9 @@ export function About({ profile, dict, projectCount, techCount }: AboutProps) {
                       <StaggerItem key={i}>
                         <div className="flex items-center gap-2">
                           <Check className="h-4 w-4 shrink-0 text-muted-foreground" />
-                          <span className="text-sm text-muted-foreground">{skill}</span>
+                          <span className="text-sm text-muted-foreground">
+                            {skill}
+                          </span>
                         </div>
                       </StaggerItem>
                     ))}
@@ -109,11 +127,17 @@ export function AboutSkeleton() {
         <div className="grid gap-8 lg:grid-cols-3 lg:gap-12">
           <div className="space-y-4 lg:col-span-2">
             {[...Array(4)].map((_, i) => (
-              <div key={i} className="h-4 w-full animate-pulse rounded bg-muted" />
+              <div
+                key={i}
+                className="h-4 w-full animate-pulse rounded bg-muted"
+              />
             ))}
             <div className="mt-8 grid grid-cols-3 gap-4">
               {[...Array(3)].map((_, i) => (
-                <div key={i} className="h-24 animate-pulse rounded-md bg-muted" />
+                <div
+                  key={i}
+                  className="h-24 animate-pulse rounded-md bg-muted"
+                />
               ))}
             </div>
           </div>

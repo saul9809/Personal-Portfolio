@@ -1,5 +1,5 @@
-import { api } from './api';
-import { getLocalizedValue } from './mock-data';
+import { api } from "./api";
+import { getLocalizedValue } from "./mock-data";
 import type {
   Profile,
   SkillCategory,
@@ -13,7 +13,7 @@ import type {
   NavItem,
   ContactMessage,
   Locale,
-} from './types';
+} from "./types";
 
 /**
  * Service Layer — obtains and transforms data.
@@ -21,7 +21,16 @@ import type {
  * This is where localization mapping happens.
  */
 
-export interface LocalizedProfile extends Omit<Profile, 'role' | 'tagline' | 'bio' | 'location' | 'availability' | 'personalInfo' | 'softSkills'> {
+export interface LocalizedProfile extends Omit<
+  Profile,
+  | "role"
+  | "tagline"
+  | "bio"
+  | "location"
+  | "availability"
+  | "personalInfo"
+  | "softSkills"
+> {
   role: string;
   tagline: string;
   bio: string;
@@ -152,6 +161,7 @@ export const services = {
     const projs = await api.getProjects();
     return projs.map((p) => ({
       ...p,
+      title: loc(p.title, locale),
       category: loc(p.category, locale),
       description: loc(p.description, locale),
       longDescription: loc(p.longDescription, locale),
@@ -187,7 +197,7 @@ export const services = {
     return api.getAllTechnologies();
   },
   async submitContactMessage(
-    message: Omit<ContactMessage, 'id' | 'createdAt'>
+    message: Omit<ContactMessage, "id" | "createdAt">,
   ): Promise<{ success: true; id: string }> {
     return api.submitContactMessage(message);
   },

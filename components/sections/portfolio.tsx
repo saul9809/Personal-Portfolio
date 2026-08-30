@@ -1,13 +1,14 @@
-'use client';
+/* eslint-disable @next/next/no-img-element */
+"use client";
 
-import { useState, useMemo, useEffect } from 'react';
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
-import { X, ExternalLink, Github } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
-import type { LocalizedProject } from '@/lib/services';
-import type { Dictionary } from '@/lib/i18n';
+import { useState, useMemo, useEffect } from "react";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { X, ExternalLink, Github } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import type { LocalizedProject } from "@/lib/services";
+import type { Dictionary } from "@/lib/i18n";
 
 interface PortfolioProps {
   projects: LocalizedProject[];
@@ -16,12 +17,12 @@ interface PortfolioProps {
 }
 
 export function Portfolio({ projects, technologies, dict }: PortfolioProps) {
-  const [filter, setFilter] = useState<string>('all');
+  const [filter, setFilter] = useState<string>("all");
   const [selected, setSelected] = useState<LocalizedProject | null>(null);
   const reduce = useReducedMotion();
 
   const filtered = useMemo(() => {
-    if (filter === 'all') return projects;
+    if (filter === "all") return projects;
     return projects.filter((p) => p.technologies.includes(filter));
   }, [filter, projects]);
 
@@ -51,11 +52,18 @@ export function Portfolio({ projects, technologies, dict }: PortfolioProps) {
           className="mb-10 flex flex-wrap items-center justify-center gap-2"
         >
           <span className="sr-only">{dict.portfolio.filterLabel}</span>
-          <FilterButton active={filter === 'all'} onClick={() => setFilter('all')}>
+          <FilterButton
+            active={filter === "all"}
+            onClick={() => setFilter("all")}
+          >
             {dict.portfolio.filterAll}
           </FilterButton>
           {technologies.map((tech) => (
-            <FilterButton key={tech} active={filter === tech} onClick={() => setFilter(tech)}>
+            <FilterButton
+              key={tech}
+              active={filter === tech}
+              onClick={() => setFilter(tech)}
+            >
               {tech}
             </FilterButton>
           ))}
@@ -96,7 +104,10 @@ export function Portfolio({ projects, technologies, dict }: PortfolioProps) {
                   </p>
                   <div className="flex flex-wrap gap-1.5">
                     {project.technologies.slice(0, 3).map((tech) => (
-                      <span key={tech} className="text-xs text-muted-foreground/70">
+                      <span
+                        key={tech}
+                        className="text-xs text-muted-foreground/70"
+                      >
                         {tech}
                       </span>
                     ))}
@@ -113,10 +124,17 @@ export function Portfolio({ projects, technologies, dict }: PortfolioProps) {
         </motion.div>
       </div>
 
-      <Dialog open={!!selected} onOpenChange={(open) => !open && setSelected(null)}>
+      <Dialog
+        open={!!selected}
+        onOpenChange={(open) => !open && setSelected(null)}
+      >
         <DialogContent className="max-w-3xl border-border bg-surface p-0 max-h-[90vh] overflow-y-auto">
           {selected && (
-            <ProjectLightbox project={selected} dict={dict} onClose={() => setSelected(null)} />
+            <ProjectLightbox
+              project={selected}
+              dict={dict}
+              onClose={() => setSelected(null)}
+            />
           )}
         </DialogContent>
       </Dialog>
@@ -138,8 +156,8 @@ function FilterButton({
       onClick={onClick}
       className={`rounded-full px-4 py-2 text-sm font-medium transition-all ${
         active
-          ? 'bg-foreground text-background'
-          : 'border border-border text-muted-foreground hover:border-foreground hover:text-foreground'
+          ? "bg-foreground text-background"
+          : "border border-border text-muted-foreground hover:border-foreground hover:text-foreground"
       }`}
     >
       {children}
@@ -157,7 +175,8 @@ function ProjectLightbox({
   onClose: () => void;
 }) {
   const [activeImage, setActiveImage] = useState(0);
-  const gallery = project.gallery.length > 0 ? project.gallery : [project.imageUrl];
+  const gallery =
+    project.gallery.length > 0 ? project.gallery : [project.imageUrl];
 
   useEffect(() => {
     setActiveImage(0);
@@ -187,10 +206,16 @@ function ProjectLightbox({
               key={i}
               onClick={() => setActiveImage(i)}
               className={`h-16 w-24 overflow-hidden rounded-md border-2 transition-all ${
-                activeImage === i ? 'border-foreground' : 'border-transparent opacity-60'
+                activeImage === i
+                  ? "border-foreground"
+                  : "border-transparent opacity-60"
               }`}
             >
-              <img src={img} alt="" className="h-full w-full object-cover saturate-[0.7]" />
+              <img
+                src={img}
+                alt=""
+                className="h-full w-full object-cover saturate-[0.7]"
+              />
             </button>
           ))}
         </div>
@@ -201,7 +226,9 @@ function ProjectLightbox({
           <Badge variant="secondary" className="mb-2">
             {project.category}
           </Badge>
-          <DialogTitle className="font-display text-2xl font-bold">{project.title}</DialogTitle>
+          <DialogTitle className="font-display text-2xl font-bold">
+            {project.title}
+          </DialogTitle>
         </div>
 
         <p className="text-sm leading-relaxed text-muted-foreground">
@@ -225,7 +252,11 @@ function ProjectLightbox({
           <div className="flex gap-3 pt-2">
             {project.links.live && (
               <Button size="sm" asChild>
-                <a href={project.links.live} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={project.links.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <ExternalLink className="mr-2 h-4 w-4" />
                   {dict.portfolio.liveDemo}
                 </a>
@@ -233,7 +264,11 @@ function ProjectLightbox({
             )}
             {project.links.repo && (
               <Button size="sm" variant="outline" asChild>
-                <a href={project.links.repo} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={project.links.repo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Github className="mr-2 h-4 w-4" />
                   {dict.portfolio.sourceCode}
                 </a>
@@ -256,12 +291,18 @@ export function PortfolioSkeleton() {
         </div>
         <div className="mb-10 flex justify-center gap-2">
           {[...Array(5)].map((_, i) => (
-            <div key={i} className="h-9 w-20 animate-pulse rounded-full bg-muted" />
+            <div
+              key={i}
+              className="h-9 w-20 animate-pulse rounded-full bg-muted"
+            />
           ))}
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {[...Array(6)].map((_, i) => (
-            <div key={i} className="overflow-hidden rounded-lg border border-border">
+            <div
+              key={i}
+              className="overflow-hidden rounded-lg border border-border"
+            >
               <div className="aspect-[4/3] animate-pulse bg-muted" />
               <div className="space-y-2 p-4">
                 <div className="h-4 w-3/4 animate-pulse rounded bg-muted" />
