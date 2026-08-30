@@ -435,8 +435,8 @@ export const certifications: Certification[] = [
   {
     id: "cert-bi",
     name: {
-      es: "Inteligencia de Negocios con Power BI",
-      en: "Business Intelligence with Power BI",
+      es: "Inteligencia de Negocios con Appsmith - Retool",
+      en: "Business Intelligence with Appsmith - Retool",
     },
     issuer: "Cervecería Cubana",
     date: "2023",
@@ -459,7 +459,7 @@ export const testimonials: Testimonial[] = [
     role: { es: "Director de Tecnología", en: "CTO" },
     company: "ECM",
     avatarUrl:
-      "https://images.unsplash.com/photo-1500648767791-00dd99472682?w=200&h=200&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&q=80",
     quote: {
       es: "Saul transformó nuestro departamento de informática. Su capacidad para liderar equipos y entregar soluciones técnicas sólidas fue clave para la modernización de nuestros procesos.",
       en: "Saul transformed our IT department. His ability to lead teams and deliver solid technical solutions was key to modernizing our processes.",
