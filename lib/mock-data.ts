@@ -254,8 +254,8 @@ export const projects: Project[] = [
       en: "Sales, inventory, and market management system.",
     },
     longDescription: {
-      es: "Plataforma web para la gestión completa de ventas: control de inventario, facturación, reportes de mercado y análisis de desempeño comercial. Construida con Laravel y Livewire para una experiencia reactiva.",
-      en: "Web platform for complete sales management: inventory control, invoicing, market reports, and commercial performance analysis. Built with Laravel and Livewire for a reactive experience.",
+      es: "Plataforma web para la gestión completa de ventas: control de inventario, toma de pedidos, reportes de mercado y análisis de desempeño comercial. Construida con React Native Expo, Laravel como backend.",
+      en: "Web platform for complete sales management: inventory control, invoicing, market reports, and commercial performance analysis. Built with React Native Expo, Laravel has backend.",
     },
     technologies: ["React Native", "Expo", "Laravel", "Neon DB", "TypeScript"],
     imageUrl:
@@ -323,8 +323,8 @@ export const projects: Project[] = [
       en: "Sales, inventory, and market management system.",
     },
     longDescription: {
-      es: "Plataforma web para la gestión completa de ventas: control de inventario, facturación, reportes de mercado y análisis de desempeño comercial. Construida con Laravel y Livewire para una experiencia reactiva.",
-      en: "Web platform for complete sales management: inventory control, invoicing, market reports, and commercial performance analysis. Built with Laravel and Livewire for a reactive experience.",
+      es: "Plataforma web para la gestión completa de ventas: control de inventario, facturación, reportes de mercado y análisis de desempeño comercial. Construida con Appsmith para una agil entrega de producto final.",
+      en: "Web platform for complete sales management: inventory control, invoicing, market reports, and commercial performance analysis. Built with Appsmith for agil system delivered.",
     },
     technologies: ["JavaScript", "Neon DB", "Appsmith", "Retool"],
     imageUrl:

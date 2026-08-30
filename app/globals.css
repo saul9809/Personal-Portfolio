@@ -85,6 +85,7 @@
   .container-portfolio {
     @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
   }
+
   .section-padding {
     @apply py-20 md:py-28 lg:py-32;
   }

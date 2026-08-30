@@ -42,7 +42,7 @@ export function Hero({ profile, dict }: HeroProps) {
         <div className="absolute bottom-10 left-10 h-[350px] w-[350px] rounded-full bg-gradient-radial from-blue-600/8 to-transparent blur-3xl" />
       </div>
 
-      <div className="container-portfolio relative z-10">
+      <div className="container-portfolio relative z-14">
         <div className="flex flex-col items-center text-center">
           <motion.div
             initial={reduce ? false : { opacity: 0, scale: 0.8 }}
@@ -158,7 +158,7 @@ export function Hero({ profile, dict }: HeroProps) {
         initial={reduce ? false : { opacity: 0 }}
         animate={reduce ? undefined : { opacity: 1 }}
         transition={{ duration: 0.6, delay: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-sky-400/60"
+        className="absolute bottom-1 left-1/2 -translate-x-1/2 text-sky-400/60"
         aria-label={dict.hero.scroll}
       >
         <motion.div
