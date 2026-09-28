@@ -496,7 +496,13 @@ export const caseStudies: CaseStudy[] = [
         label: { es: "Profesores en el sistema", en: "Teachers in the system" },
         value: "400",
       },
-      { label: { es: "Lenguaje", en: "Language" }, value: "Java" },
+      {
+        label: {
+          es: "Conflicto en los horarios de clase",
+          en: "Class schedule conflicts",
+        },
+        value: "-80%",
+      },
     ],
   },
 ];
