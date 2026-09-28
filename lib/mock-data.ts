@@ -50,12 +50,12 @@ export const profile: Profile = {
     en: "Scalable solutions and systems tailored to your needs.",
   },
   bio: {
-    es: "Soy ingeniero en Ciencias Informáticas con experiencia en desarrollo full-stack, inteligencia de negocios y gestión de equipos técnicos. Especializado en Laravel, React y React Native, me apasiona crear soluciones que combinan rendimiento, claridad y valor real para el usuario. He liderado departamentos de informática, diseñado sistemas de reclutamiento con IA y construido aplicaciones móviles offline-first usadas en producción.",
-    en: "I am a Computer Science Engineer with experience in full-stack development, business intelligence, and technical team management. Specialized in Laravel, React, and React Native, I am passionate about building solutions that combine performance, clarity, and real user value. I have led IT departments, designed AI-powered recruitment systems, and built offline-first mobile apps used in production.",
+    es: "Soy ingeniero en Ciencias Informáticas con experiencia en desarrollo full-stack, inteligencia de negocios y gestión de equipos técnicos. Especializado en Laravel, Java, React y React Native, me apasiona crear soluciones que combinan rendimiento, claridad y valor real para el usuario. He liderado departamentos de informática, diseñado sistemas de reclutamiento con IA y construido aplicaciones móviles offline-first para Android e iOS.",
+    en: "I am a Computer Science Engineer with experience in full-stack development, business intelligence, and technical team management. Specialized in Laravel, Java, React, and React Native, I am passionate about building solutions that combine performance, clarity, and real user value. I have led IT departments, designed AI-powered recruitment systems, and built offline-first mobile apps for Android and iOS.",
   },
   photoUrl:
     "https://res.cloudinary.com/blchkvte/image/upload/f_auto,q_auto/work_profile",
-  email: "saulfuentesfariñas@gmail.com",
+  email: "saulfuentesfarinas@gmail.com",
   phone: "+53 56888556",
   location: { es: "La Habana, Cuba", en: "Havana, Cuba" },
   availability: {
@@ -112,12 +112,18 @@ export const skillCategories: SkillCategory[] = [
   {
     id: "languages",
     title: { es: "Lenguajes", en: "Languages" },
-    skills: ["PHP", "JavaScript", "TypeScript", "HTML", "CSS", "SQL"],
+    skills: ["PHP", "Java", "JavaScript", "TypeScript", "HTML", "CSS", "SQL"],
   },
   {
     id: "frameworks",
     title: { es: "Frameworks", en: "Frameworks" },
-    skills: ["Laravel", "React", "Livewire", "React Native (Expo)"],
+    skills: [
+      "Laravel",
+      "Spring Boot",
+      "React",
+      "Livewire",
+      "React Native (Expo)",
+    ],
   },
   {
     id: "databases",
@@ -127,7 +133,7 @@ export const skillCategories: SkillCategory[] = [
   {
     id: "tools",
     title: { es: "Herramientas", en: "Tools" },
-    skills: ["Retool", "Appsmith", "Git", "Docker", "Figma"],
+    skills: ["Retool", "Appsmith", "Git", "Docker", "Figma", "Android Studio"],
   },
 ];
 
@@ -221,17 +227,17 @@ export const projects: Project[] = [
   {
     id: "mobile-recharges",
     title: {
-      es: "App de Recargas y Servicios Móviles",
-      en: "Mobile Recharges and Services App",
+      es: "App de Recargas y Servicios Móviles (Multiplataforma)",
+      en: "Mobile Recharges and Services App (Cross-platform)",
     },
     category: { es: "Aplicaciones Móviles", en: "Mobile Apps" },
     description: {
-      es: "App móvil para recargas telefónicas y pago de servicios.",
-      en: "Mobile app for phone recharges and service payments.",
+      es: "Migración de mi app Android en Java a React Native para llevar recargas y servicios móviles a Android e iOS.",
+      en: "Migration of my Java Android app to React Native to bring mobile top-ups and services to both Android and iOS.",
     },
     longDescription: {
-      es: "Aplicación móvil desarrollada con React Native y Expo que permite a los usuarios realizar recargas telefónicas, pagar servicios y gestionar sus transacciones. Incluye autenticación, historial de operaciones y pasarela de pago integrada.",
-      en: "Mobile application developed with React Native and Expo that allows users to make phone recharges, pay for services, and manage their transactions. Includes authentication, transaction history, and integrated payment gateway.",
+      es: "Migración a React Native y Expo de mi aplicación nativa de Android desarrollada en Java (AuxiliarServiciosMoviles), con el objetivo de hacerla multiplataforma y llegar a usuarios de Android e iOS con un único código base. Permite realizar recargas telefónicas, comprar saldo y planes, pagar servicios y gestionar las transacciones. Incluye autenticación, historial de operaciones y pasarela de pago integrada.",
+      en: "Migration to React Native and Expo of my native Android application built in Java (AuxiliarServiciosMoviles), aimed at making it cross-platform and reaching Android and iOS users with a single codebase. It allows users to make phone top-ups, buy balance and plans, pay for services, and manage their transactions. Includes authentication, transaction history, and integrated payment gateway.",
     },
     technologies: ["React Native", "Expo", "TypeScript", "PostgreSQL"],
     imageUrl:
@@ -300,8 +306,8 @@ export const projects: Project[] = [
       en: "Offline-first shopping list app with cloud sync.",
     },
     longDescription: {
-      es: "Aplicación móvil offline-first para gestionar listas de compras. Funciona sin conexión y sincroniza automáticamente con la nube al recuperar conexión. Construida con React Native y Expo, con almacenamiento local y sincronización bidireccional.",
-      en: "Offline-first mobile app to manage shopping lists. Works offline and automatically syncs with the cloud when connection is restored. Built with React Native and Expo, with local storage and bidirectional sync.",
+      es: "Aplicación móvil multiplataforma (Android e iOS) offline-first para gestionar listas de compras. Funciona sin conexión y sincroniza automáticamente con la nube al recuperar conexión. Construida con React Native y Expo, con almacenamiento local y sincronización bidireccional.",
+      en: "Cross-platform (Android and iOS) offline-first mobile app to manage shopping lists. Works offline and automatically syncs with the cloud when connection is restored. Built with React Native and Expo, with local storage and bidirectional sync.",
     },
     technologies: ["React Native", "Expo", "TypeScript"],
     imageUrl:
@@ -331,6 +337,53 @@ export const projects: Project[] = [
       "https://res.cloudinary.com/blchkvte/image/upload/v1788056677/Screenshot_2026-08-27_095213.png",
     gallery: [
       "https://res.cloudinary.com/blchkvte/image/upload/v1788056677/Screenshot_2026-08-27_095213.png",
+    ],
+    featured: false,
+  },
+  // ─── Proyectos en Java ────────────────────────────────────────────
+  {
+    id: "gestor-escolar",
+    title: {
+      es: "GestorEscolar — Sistema de Gestión Académica",
+      en: "GestorEscolar — Academic Management System",
+    },
+    category: { es: "Educación", en: "Education" },
+    description: {
+      es: "Sistema en Java para gestionar horarios de estudiantes, profesores y asistencia a clases.",
+      en: "Java system to manage student schedules, teachers, and class attendance.",
+    },
+    longDescription: {
+      es: "Sistema desarrollado en Java como proyecto universitario que resuelve la gestión de estudiantes en cuanto a horarios y profesores, además del control de asistencia a clases. Aplica programación orientada a objetos, diseño modular y modelado con UML.",
+      en: "System built in Java as a university project that handles student management in terms of schedules and teachers, along with class attendance tracking. Applies object-oriented programming, modular design, and UML modeling.",
+    },
+    technologies: ["Java"],
+    imageUrl:
+      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=600&fit=crop&q=80",
+    gallery: [
+      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=600&fit=crop&q=80",
+    ],
+    featured: true,
+  },
+  {
+    id: "auxiliar-servicios-moviles",
+    title: {
+      es: "AuxiliarServiciosMoviles — App Android",
+      en: "AuxiliarServiciosMoviles — Android App",
+    },
+    category: { es: "Aplicaciones Móviles", en: "Mobile Apps" },
+    description: {
+      es: "App Android en Java para recargas móviles, compra de saldo y de planes en una sola plataforma.",
+      en: "Android app in Java for mobile top-ups, balance purchases, and plan purchases on a single platform.",
+    },
+    longDescription: {
+      es: "Aplicación móvil para Android desarrollada en Java (con Android Studio como IDE) que resolvió un problema concreto: los servicios de recarga móvil, compra de saldo y compra de planes no estaban disponibles en ninguna plataforma. La app los reúne en un solo lugar, con interfaz de usuario y lógica de negocio propias. Posteriormente fue migrada a React Native para hacerla multiplataforma.",
+      en: "Android mobile application developed in Java (using Android Studio as the IDE) that solved a concrete problem: mobile top-up, balance purchase, and plan purchase services were not available on any platform. The app brings them together in one place, with its own user interface and business logic. It was later migrated to React Native to make it cross-platform.",
+    },
+    technologies: ["Java", "Android"],
+    imageUrl:
+      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop&q=80",
+    gallery: [
+      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop&q=80",
     ],
     featured: false,
   },
@@ -389,8 +442,8 @@ export const caseStudies: CaseStudy[] = [
       en: "Users needed a shopping list app that worked in areas with intermittent connectivity, without losing data or duplicating items when regaining network.",
     },
     solution: {
-      es: "Construí una app con React Native y Expo usando un patrón offline-first: almacenamiento local persistente y sincronización bidireccional con resolución de conflictos basada en timestamps al recuperar la conexión.",
-      en: "I built an app with React Native and Expo using an offline-first pattern: persistent local storage and bidirectional sync with timestamp-based conflict resolution when regaining connection.",
+      es: "Construí una app con React Native y Expo, disponible para Android e iOS, usando un patrón offline-first: almacenamiento local persistente y sincronización bidireccional con resolución de conflictos basada en timestamps al recuperar la conexión.",
+      en: "I built an app with React Native and Expo, available for Android and iOS, using an offline-first pattern: persistent local storage and bidirectional sync with timestamp-based conflict resolution when regaining connection.",
     },
     result: {
       es: "La app funciona sin interrupciones incluso sin red. La sincronización automática eliminó la pérdida de datos y los usuarios reportaron una experiencia confiable en cualquier condición.",
@@ -409,6 +462,41 @@ export const caseStudies: CaseStudy[] = [
         label: { es: "Satisfacción de usuarios", en: "User satisfaction" },
         value: "4.8/5",
       },
+    ],
+  },
+  // ─── Casos de estudio en Java ─────────────────────────────────────
+  {
+    id: "cs-gestor-escolar",
+    projectId: "gestor-escolar",
+    title: {
+      es: "Gestión de horarios, profesores y asistencia escolar",
+      en: "Managing schedules, teachers, and school attendance",
+    },
+    challenge: {
+      es: "La organización de los horarios de los estudiantes, la asignación de profesores y el registro de asistencia a clases eran procesos que necesitaban centralizarse en un único sistema, con reglas claras y datos consistentes.",
+      en: "Organizing student schedules, assigning teachers, and recording class attendance were processes that needed to be centralized in a single system, with clear rules and consistent data.",
+    },
+    solution: {
+      es: "Desarrollé el sistema en Java aplicando programación orientada a objetos y diseño modular: un modelo de clases para estudiantes, profesores, horarios y asistencia, con las reglas de negocio separadas de la capa de datos. Modelé el sistema con UML antes de implementarlo.",
+      en: "I built the system in Java applying object-oriented programming and modular design: a class model for students, teachers, schedules, and attendance, with business rules separated from the data layer. I modeled the system with UML before implementing it.",
+    },
+    result: {
+      es: "Un único sistema que organiza los horarios y la asistencia a clases de 3,200 estudiantes y 400 profesores, resolviendo la gestión de estudiantes en cuanto a horarios y profesores. Además, consolidó mis bases en Java, POO y modelado de software.",
+      en: "A single system that organizes schedules and class attendance for 3,200 students and 400 teachers, handling student management in terms of schedules and teachers. It also consolidated my foundations in Java, OOP, and software modeling.",
+    },
+    metrics: [
+      {
+        label: {
+          es: "Estudiantes en el sistema",
+          en: "Students in the system",
+        },
+        value: "3,200",
+      },
+      {
+        label: { es: "Profesores en el sistema", en: "Teachers in the system" },
+        value: "400",
+      },
+      { label: { es: "Lenguaje", en: "Language" }, value: "Java" },
     ],
   },
 ];
